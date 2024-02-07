@@ -1,0 +1,14 @@
+# Environment.
+.env
+venv/
+
+# Django migrations
+**/migrations/**
+!**/migrations/__init__.py
+
+# Logs.
+*.log
+
+# Python cache.
+__pycache__/
+.pyc
