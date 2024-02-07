@@ -1,0 +1,149 @@
+# Client powered by
+#   Name: REST Client
+#   Id: humao.rest-client
+#   Description: REST Client for Visual Studio Code
+#   Version: 0.25.1
+#   Publisher: Huachao Mao
+#   VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+
+
+##########################################################################
+################################## AUTH ##################################
+##########################################################################
+
+
+###
+POST http://127.0.0.1:8000/api/auth/register/ HTTP/1.1
+Accept-Language: en-US,en;q=0.8
+Accept-Language: ru-RU
+Content-Type: application/json
+User-Agent: custom_vscode-restclient
+
+{
+    "name_first": "Иван",
+    "name_last": "Иванов",
+    "email": "iVan16@email.com",
+    "password": "12345aA!",
+    "from_referral_code": "127803WLf989299MhDE151920"
+}
+
+###
+POST http://127.0.0.1:8000/api/auth/login/ HTTP/1.1
+Accept-Language: en-US,en;q=0.8
+Accept-Language: ru-RU
+Content-Type: application/json
+User-Agent: custom_vscode-restclient
+
+{
+    "email": "iVan@email.com",
+    "password": "12345aA!"
+}
+
+###
+POST http://127.0.0.1:8000/api/auth/password-change/ HTTP/1.1
+Accept-Language: en-US,en;q=0.8
+Accept-Language: ru-RU
+Authorization: Bearer jwt_token_access
+Content-Type: application/json
+User-Agent: custom_vscode-restclient
+
+{
+    "password": "12345aA!",
+    "new_password": "12345aA!new",
+    "new_password_confirm": "12345aA!new"
+}
+
+###
+POST http://127.0.0.1:8000/api/auth/password-reset/ HTTP/1.1
+Accept-Language: en-US,en;q=0.8
+Accept-Language: ru-RU
+Authorization: Bearer jwt_token_access
+Content-Type: application/json
+User-Agent: custom_vscode-restclient
+
+{
+    "email": "iVan@email.com"
+}
+
+###
+POST http://127.0.0.1:8000/api/auth/password-reset-confirm/ HTTP/1.1
+Accept-Language: en-US,en;q=0.8
+Accept-Language: ru-RU
+Content-Type: application/json
+User-Agent: custom_vscode-restclient
+
+{
+    "reset_token": "reset_token",
+    "new_password": "12345aA!",
+    "new_password_confirm": "12345aA!"
+}
+
+###
+POST http://127.0.0.1:8000/api/auth/refresh/ HTTP/1.1
+Accept-Language: en-US,en;q=0.8
+Accept-Language: ru-RU
+Content-Type: application/json
+User-Agent: custom_vscode-restclient
+
+{
+    "refresh": "jwt_token_refresh"
+}
+
+
+##########################################################################
+################################## DOCS ##################################
+##########################################################################
+
+
+###
+GET http://127.0.0.1:8000/api/docs/ HTTP/1.1
+Accept-Language: en-US,en;q=0.8
+Accept-Language: ru-RU
+User-Agent: custom_vscode-restclient
+
+
+##########################################################################
+################################# USERS ##################################
+##########################################################################
+
+
+###
+GET http://127.0.0.1:8000/api/users/me/ HTTP/1.1
+Accept-Language: en-US,en;q=0.8
+Accept-Language: ru-RU
+Authorization: Bearer jwt_token_access
+User-Agent: custom_vscode-restclient
+
+###
+GET http://127.0.0.1:8000/api/users/my-referrals/ HTTP/1.1
+Accept-Language: en-US,en;q=0.8
+Accept-Language: ru-RU
+Authorization: Bearer jwt_token_access
+User-Agent: custom_vscode-restclient
+
+###
+GET http://127.0.0.1:8000/api/users/2/referrals/ HTTP/1.1
+Accept-Language: en-US,en;q=0.8
+Accept-Language: ru-RU
+User-Agent: custom_vscode-restclient
+
+###
+POST http://127.0.0.1:8000/api/users/referral-code/create/ HTTP/1.1
+Accept-Language: en-US,en;q=0.8
+Accept-Language: ru-RU
+Authorization: Bearer jwt_token_access
+User-Agent: custom_vscode-restclient
+
+###
+POST http://127.0.0.1:8000/api/users/referral-code/delete/ HTTP/1.1
+Accept-Language: en-US,en;q=0.8
+Accept-Language: ru-RU
+Authorization: Bearer jwt_token_access
+User-Agent: custom_vscode-restclient
+
+###
+GET http://127.0.0.1:8000/api/users/referral-code/get/{user_email}/ HTTP/1.1
+Accept-Language: en-US,en;q=0.8
+Accept-Language: ru-RU
+User-Agent: custom_vscode-restclient
