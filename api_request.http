@@ -1,0 +1,79 @@
+# Client powered by
+#   Name: REST Client
+#   Id: humao.rest-client
+#   Description: REST Client for Visual Studio Code
+#   Version: 0.25.1
+#   Publisher: Huachao Mao
+#   VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+
+##########################################################################
+################################## AUTH ##################################
+##########################################################################
+
+
+###
+POST http://127.0.0.1:8000/api/auth/users/ HTTP/1.1
+Accept-Language: en-US,en;q=0.8
+Accept-Language: ru-RU
+Content-Type: application/json
+User-Agent: custom_vscode-restclient
+
+{
+    "username": "admin",
+    "email": "admin@email.com",
+    "password": "MyPass1!"
+}
+
+
+###
+POST http://127.0.0.1:8000/api/auth/token/ HTTP/1.1
+Accept-Language: en-US,en;q=0.8
+Accept-Language: ru-RU
+Content-Type: application/json
+User-Agent: custom_vscode-restclient
+
+{
+    "username": "admin",
+    "password": "MyPass1!"
+}
+
+
+##########################################################################
+################################## CONTENT ##################################
+##########################################################################
+
+
+###
+GET http://127.0.0.1:8000/api/content/ HTTP/1.1
+
+
+###
+POST http://127.0.0.1:8000/api/content/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA3NzE0NDYxLCJpYXQiOjE3MDY4NTA0NjEsImp0aSI6ImI2YWExNWVmZGRmZjQ4NGU4OTM1NDk2Y2JiZjFkMzMwIiwidXNlcl9pZCI6MX0.mo__Ona4wn6SfLwC2B9QIsgYQmePk0ro4HQro1vJn70
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="example.txt"
+Content-Type: text/plain
+
+amqp==5.2.0
+asgiref==3.7.2
+attrs==23.2.0
+billiard==4.2.0
+celery==5.3.6
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+### Будет отправлен GIF размером 1x1 пиксель, содержащего один черный пиксель
+POST http://127.0.0.1:8000/api/content/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA3NzE0NDYxLCJpYXQiOjE3MDY4NTA0NjEsImp0aSI6ImI2YWExNWVmZGRmZjQ4NGU4OTM1NDk2Y2JiZjFkMzMwIiwidXNlcl9pZCI6MX0.mo__Ona4wn6SfLwC2B9QIsgYQmePk0ro4HQro1vJn70
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="example.gif"
+Content-Type: image/gif
+
+GIF89a\x01\x00\x01\x00\x80\x00\x00\xff\xff\xff\xff\xff\xff\xff\x21\xf9\x04\x01\x00\x00\x00\x00,\x00\x00\x00\x00\x01\x00\x01\x00\x00\x02\x02D\x01\x00;
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
