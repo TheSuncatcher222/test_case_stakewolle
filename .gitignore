@@ -9,6 +9,10 @@ celerybeat-schedule
 .env
 venv/
 
+# Local messages
+app/email_messages_debug/*
+!app/email_messages_debug/__init__.py
+
 # Python cache.
 __pycache__/
 .pyc
