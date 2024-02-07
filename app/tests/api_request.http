@@ -23,7 +23,7 @@ User-Agent: custom_vscode-restclient
 {
     "name_first": "Иван",
     "name_last": "Иванов",
-    "email": "iVan16@email.com",
+    "email": "iVan@email.com",
     "password": "12345aA!",
     "from_referral_code": "127803WLf989299MhDE151920"
 }
