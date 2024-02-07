@@ -1,13 +1,13 @@
+# Alembic migrations.
+app/alembic/versions/*.py
+!app/alembic/versions/__init__.py
+
+# Celery.
+celerybeat-schedule
+
 # Environment.
 .env
 venv/
-
-# Django migrations
-**/migrations/**
-!**/migrations/__init__.py
-
-# Logs.
-*.log
 
 # Python cache.
 __pycache__/
